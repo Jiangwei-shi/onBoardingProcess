@@ -1,7 +1,6 @@
 package org.example.controller;
 
-import com.google.cloud.storage.BlobId;
-import org.example.service.IntervieweeService;
+import org.example.service.CandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,14 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.File;
 import java.io.IOException;
 
 @Controller
-public class IntervieweeController {
+public class CandidateController {
 
     @Autowired
-    IntervieweeService intervieweeService;
+    CandidateService candidateService;
 
     @GetMapping("/")
     public String homePage() {
@@ -30,13 +28,13 @@ public class IntervieweeController {
         return "loginPage";
     }
 
-    @GetMapping("/registerAsInterviewee")
+    @GetMapping("/registerAsCandidate")
     public String getRegistrationPage() {
         System.out.println("inside registrationPage()");
-        return "registerIntervieweePage";
+        return "registerCandidatePage";
     }
 
-    @PostMapping("/registerAsInterviewee")
+    @PostMapping("/registerAsCandidate")
     public ModelAndView register(@RequestParam("username") String username,
                                  @RequestParam("password") String password,
                                  @RequestParam("nationality") String nationality,
@@ -48,11 +46,11 @@ public class IntervieweeController {
             System.out.println(contentType);
         }
         ModelAndView modelAndView = null;
-        if(intervieweeService.register(username,password,nationality,visaStatus,photo,resume)){
+        if(candidateService.register(username,password,nationality,visaStatus,photo,resume)){
             modelAndView = new ModelAndView("redirect:/login");
             modelAndView.addObject("registerWork", "Username created!");
         }else {
-            modelAndView = new ModelAndView("redirect:/registerInterviewee");
+            modelAndView = new ModelAndView("redirect:/registerCandidate");
             modelAndView.addObject("registerError", "Username already exists!");
         }
         return modelAndView;

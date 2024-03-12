@@ -19,12 +19,12 @@
     <div class="container  text-center">
         <div class="row pt-4 mb-4">
             <div class="col align-self-center">
-                <a href="registerAsInterviewee">Register as a interviewee</a>
+                <a href="registerAsCandidate">Register as a interviewee</a>
             </div>
         </div>
         <div class="row">
             <div class="col align-self-center">
-                <a href="registerAsInterviewer">Register as a interviewer</a>
+                <a href="registerAsEmployee">Register as a interviewer</a>
             </div>
         </div>
     </div>

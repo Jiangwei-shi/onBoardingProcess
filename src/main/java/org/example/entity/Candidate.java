@@ -12,7 +12,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "Interviewee")
-public class Interviewee {
+public class Candidate {
     @Id
     private String username;
     private String password;

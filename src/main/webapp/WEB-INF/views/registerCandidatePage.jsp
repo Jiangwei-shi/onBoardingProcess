@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="container  text-center">
-        <form action="registerAsInterviewee" method="post" enctype="multipart/form-data" class="p-5 mb-0">
+        <form action="registerAsCandidate" method="post" enctype="multipart/form-data" class="p-5 mb-0">
             <label class="mb-4 fw-bold fs-2">Provide your Personal information</label>
 
             <div class="row g-2">

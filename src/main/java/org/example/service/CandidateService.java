@@ -1,7 +1,7 @@
 package org.example.service;
 
-import org.example.entity.Interviewee;
-import org.example.repository.IntervieweeRepository;
+import org.example.entity.Candidate;
+import org.example.repository.CandidateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,10 +10,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @Service
-public class IntervieweeService {
+public class CandidateService {
 
     @Autowired
-    IntervieweeRepository intervieweeRepository;
+    CandidateRepository candidateRepository;
     @Autowired
     FirebaseStorageService firebaseStorageService;
     public boolean register(@RequestParam("username") String username,
@@ -24,10 +24,11 @@ public class IntervieweeService {
                             @RequestParam("resume") MultipartFile resume) throws IOException {
         String photoUrl = firebaseStorageService.upload(photo);
         String resumeUrl = firebaseStorageService.upload(resume);
-        Interviewee interviewee = new Interviewee(username,password,nationality,visaStatus,null,null,resumeUrl,photoUrl,null,"Employee");
+        Candidate candidate = new Candidate(username,password,nationality,visaStatus,null,null,resumeUrl,photoUrl,null,"Employee");
         boolean status = false;
-        if(!intervieweeRepository.existsByUsername(interviewee.getUsername())){
-            intervieweeRepository.save(interviewee);
+        if(!candidateRepository.existsByUsername(candidate.getUsername())){
+            System.out.println(candidate);
+            candidateRepository.save(candidate);
             status=true;
         }
         return status;
