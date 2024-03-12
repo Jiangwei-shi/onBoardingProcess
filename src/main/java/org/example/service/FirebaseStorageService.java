@@ -20,7 +20,7 @@ public class FirebaseStorageService {
     private String uploadFile(File file, String fileName, String fileType) throws IOException {
         BlobId blobId = BlobId.of("onboardingprocess-23d55.appspot.com", fileName); // Replace with your bucker name
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType(fileType).build();
-        InputStream inputStream = FirebaseStorageService.class.getClassLoader().getResourceAsStream("onboardingprocess-23d55-firebase-adminsdk-qw0vz-f8c01f8881.json"); // change the file name with your one
+        InputStream inputStream = FirebaseStorageService.class.getClassLoader().getResourceAsStream("onboardingprocess-23d55-firebase-adminsdk-qw0vz-f8c01f8881.json"); // change the file name with yours
         assert inputStream != null;
         Credentials credentials = GoogleCredentials.fromStream(inputStream);
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
@@ -45,6 +45,7 @@ public class FirebaseStorageService {
     public String upload(MultipartFile multipartFile) {
         try {
             String fileName = multipartFile.getOriginalFilename();                        // to get original file name
+            assert fileName != null;
             fileName = UUID.randomUUID().toString().concat(this.getExtension(fileName));  // to generated random string values for file name.
             File file = this.convertToFile(multipartFile, fileName);                      // to convert multipartFile to File
             String URL = this.uploadFile(file, fileName, multipartFile.getContentType()); // to get uploaded file link
