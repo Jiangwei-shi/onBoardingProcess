@@ -24,7 +24,8 @@ public class CandidateService {
                             @RequestParam("resume") MultipartFile resume) throws IOException {
         String photoUrl = firebaseStorageService.upload(photo);
         String resumeUrl = firebaseStorageService.upload(resume);
-        Candidate candidate = new Candidate(username,password,nationality,visaStatus,null,null,resumeUrl,photoUrl,null,"Employee");
+//        Candidate candidate = new Candidate(username,password,nationality,visaStatus,null,null,resumeUrl,photoUrl,null,"Employee");
+        Candidate candidate = new Candidate();
         boolean status = false;
         if(!candidateRepository.existsByUsername(candidate.getUsername())){
             System.out.println(candidate);

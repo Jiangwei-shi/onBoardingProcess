@@ -16,12 +16,30 @@ public class Candidate {
     @Id
     private String username;
     private String password;
+    private String batch;
+    private String firstName;
+    private String lastName;
+    private String dob;
+    private String email;
+    private String phone;
+    private String address;
+    private String city;
+    private String state;
+    private String county;
+    private String zipcode;
+    private String createBy;
+    private String createOn;
+    private String lastUpdateBy;
+    private String lastUpdateOn;
     private String nationality;
     private String visaStatus;
-    private String interviewAssignedTo;
+    private String interviewBy;
+    private String interviewOn;
     private String interviewStatus;
     private String resume;
     private String photo;
-    private String feedback;
+//    private String feedback;
+    private String status;
+    private String progress;
     private String role;
 }
