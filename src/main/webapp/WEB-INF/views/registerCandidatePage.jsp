@@ -45,13 +45,8 @@
 
             <div class="row g-2">
                 <div class="col form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="Enter Email" name="email">
-                    <label for="floatingInput">Email</label>
-                </div>
-
-                <div class="col form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Enter Batch" name="batch">
-                    <label for="floatingInput">Batch</label>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Enter Address" name="address">
+                    <label for="floatingInput">Address</label>
                 </div>
             </div>
 
@@ -95,8 +90,8 @@
 
             <div class="row g-2">
                 <div class="col form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Enter Address" name="address">
-                    <label for="floatingInput">Address</label>
+                    <input type="email" class="form-control" id="floatingInput" placeholder="Enter Email" name="email">
+                    <label for="floatingInput">Email</label>
                 </div>
 
                 <div class="col form-floating mb-3">
@@ -151,18 +146,18 @@
                 <div class="col mb-3 d-flex align-items-stretch" style="height: 58px">
                     <select class="form-select w-100" aria-label="select example" name="status">
                         <option selected disabled>Select status</option>
-                        <option value="OPT initial">onboarding</option>
-                        <option value="OPT extend">pending</option>
-                        <option value="H1B">rejected</option>
-                        <option value="Green Card">selected</option>
+                        <option value="onboarding">onboarding</option>
+                        <option value="pending">pending</option>
+                        <option value="rejected">rejected</option>
+                        <option value="selected">selected</option>
                     </select>
                 </div>
 
                 <div class="col mb-3 d-flex align-items-stretch">
                     <select class="form-select w-100" aria-label="select example" name="progress">
                         <option selected disabled>Select progress</option>
-                        <option value="OPT initial">training</option>
-                        <option value="OPT extend">marketing</option>
+                        <option value="training">training</option>
+                        <option value="marketing">marketing</option>
                     </select>
                 </div>
             </div>
@@ -171,16 +166,16 @@
                 <div class="col mb-3 d-flex align-items-stretch" style="height: 58px">
                     <select class="form-select w-100" aria-label="select example" name="role">
                         <option selected disabled>Select role</option>
-                        <option value="OPT initial">Candidate</option>
+                        <option value="Candidate">Candidate</option>
                     </select>
                 </div>
 
                 <div class="col mb-3 d-flex align-items-stretch">
                     <select class="form-select w-100" aria-label="select example" name="batch">
                         <option selected disabled>Select batch</option>
-                        <option value="OPT initial">Java</option>
-                        <option value="OPT extend">FrontEnd</option>
-                        <option value="OPT extend">BackEnd</option>
+                        <option value="Java">Java</option>
+                        <option value="FrontEnd">FrontEnd</option>
+                        <option value="BackEnd">BackEnd</option>
                     </select>
                 </div>
             </div>
