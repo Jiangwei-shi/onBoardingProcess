@@ -205,12 +205,12 @@
             <div class="row row-cols-1">
                 <div class="col input-group mb-4">
                     <label class="input-group-text" for="inputGroupFile01">upload photo</label>
-                    <input type="file" class="form-control" id="inputGroupFile01" name="photo">
+                    <input type="file" class="form-control" id="inputGroupFile01" name="updatePhoto">
                 </div>
 
                 <div class="col input-group mb-4">
                     <label class="input-group-text" for="inputGroupFile01">Upload resume</label>
-                    <input type="file" class="form-control" id="inputGroupFile01" name="resume">
+                    <input type="file" class="form-control" id="inputGroupFile01" name="updateResume">
                 </div>
             </div>
 

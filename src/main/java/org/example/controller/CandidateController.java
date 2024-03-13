@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.entity.Candidate;
 import org.example.service.CandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,18 +36,12 @@ public class CandidateController {
     }
 
     @PostMapping("/registerAsCandidate")
-    public ModelAndView register(@RequestParam("username") String username,
-                                 @RequestParam("password") String password,
-                                 @RequestParam("nationality") String nationality,
-                                 @RequestParam("visaStatus") String visaStatus,
-                                 @RequestParam("photo") MultipartFile photo,
-                                 @RequestParam("resume") MultipartFile resume) throws IOException {
-        if (!photo.isEmpty()) {
-            String contentType = photo.getContentType();
-            System.out.println(contentType);
-        }
-        ModelAndView modelAndView = null;
-        if(candidateService.register(username,password,nationality,visaStatus,photo,resume)){
+    public ModelAndView register(Candidate candidate,
+                                 @RequestParam("updatePhoto") MultipartFile updatePhoto,
+                                 @RequestParam("updateResume") MultipartFile updateResume) throws IOException {
+
+        ModelAndView modelAndView;
+        if(candidateService.register(candidate,updatePhoto,updateResume)){
             modelAndView = new ModelAndView("redirect:/login");
             modelAndView.addObject("registerWork", "Username created!");
         }else {

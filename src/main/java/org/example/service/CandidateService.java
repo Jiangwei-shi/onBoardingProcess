@@ -16,19 +16,15 @@ public class CandidateService {
     CandidateRepository candidateRepository;
     @Autowired
     FirebaseStorageService firebaseStorageService;
-    public boolean register(@RequestParam("username") String username,
-                            @RequestParam("password") String password,
-                            @RequestParam("nationality") String nationality,
-                            @RequestParam("visaStatus") String visaStatus,
-                            @RequestParam("photo") MultipartFile photo,
-                            @RequestParam("resume") MultipartFile resume) throws IOException {
-        String photoUrl = firebaseStorageService.upload(photo);
-        String resumeUrl = firebaseStorageService.upload(resume);
-//        Candidate candidate = new Candidate(username,password,nationality,visaStatus,null,null,resumeUrl,photoUrl,null,"Employee");
-        Candidate candidate = new Candidate();
+    public boolean register(Candidate candidate,
+                            @RequestParam("updatePhoto") MultipartFile updatePhoto,
+                            @RequestParam("updateResume") MultipartFile updateResume) throws IOException {
+        String photoUrl = firebaseStorageService.upload(updatePhoto);
+        String resumeUrl = firebaseStorageService.upload(updateResume);
+        candidate.setPhoto(photoUrl);
+        candidate.setResume(resumeUrl);
         boolean status = false;
         if(!candidateRepository.existsByUsername(candidate.getUsername())){
-            System.out.println(candidate);
             candidateRepository.save(candidate);
             status=true;
         }
